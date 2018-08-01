@@ -1,0 +1,18 @@
+body {
+    color: green;
+
+}
+
+article{
+    width:690px;
+    margin:auto;
+}
+
+h1,h2 {
+    text-align: center;
+    color:grey;
+}
+
+img{
+    width:100%;
+}
