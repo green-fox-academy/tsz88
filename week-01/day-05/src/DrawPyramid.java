@@ -14,11 +14,13 @@ public class DrawPyramid {
     for (int i = 1; i <= row; i++){
       int s = row-i;
       while (s>0){
+        //makes a string with enough spaces
         space = space + " ";
         s--;
       }
       System.out.println(space+line);
       line = line + "**";
+      //space string resets in each cycle
       space = "";
     }
   }
