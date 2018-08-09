@@ -8,7 +8,7 @@ public class Checkerboard2 {
   public static void mainDraw(Graphics graphics) {
     // Fill the canvas with a checkerboard pattern.
 
-    int size = 15;
+    int size = 30;
     int x = 0;
     int i;
 
@@ -26,11 +26,9 @@ public class Checkerboard2 {
           layingATile(size, white, x, y, graphics);
           x += size;
         }
-
       }
 
-      if(y%(size*2) == size){
-
+      else{
         while (x < WIDTH) {
           //start even number rows with white
           layingATile(size, white, x, y, graphics);
@@ -39,7 +37,6 @@ public class Checkerboard2 {
           x += size;
         }
       }
-      y += size;
       x=0;
     }
   }
