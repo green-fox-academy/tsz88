@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.util.concurrent.ForkJoinPool;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
@@ -10,33 +11,38 @@ public class FunctionToCenter {
     // The x and y coordinates of the line's starting point
     // and draws a line from that point to the center of the canvas.
     // Fill the canvas with lines from the edges, every 20 px, to the center.
+    int x = 0;
+    int y = 0;
 
-    int x=0; int y=0;
+    while (y <= HEIGHT) {
+      while (x <= WIDTH) {
+        if (selector(x, y)){
+          lineToCenter(x,y,graphics);
+        }
+        x++;
+      }
+      x=0;
+      y++;
+    }
 
-    if(y==0||y==HEIGHT) {
-      while (y <= HEIGHT) {
-        //this loop draws all lines from the top and the bottom side of the canvas
-        while (x < WIDTH) {
-          lineToCenter(x, y, graphics);
-          x += 20; //20px steps between lines starting from left and right side of the canvas
-        }
-        y++;
-      }
-    }
-    if(x==0||x==WIDTH) {
-      for (x = 0; x<=WIDTH; x++){
-        //this loop draws all lines from the sides
-        while (y < HEIGHT) {
-          lineToCenter(x, y, graphics);
-          y += 20; //20px steps between lines starting from left and right side of the canvas
-        }
-      }
-    }
+
+
+
+
+
 
 
   }
   public static void lineToCenter(int x, int y, Graphics graphics){
     graphics.drawLine(x,y,WIDTH/2,HEIGHT/2);
+  }
+  public static Boolean selector(int x,int y){
+    boolean pickMe = false;
+    //it is true only in four cases:
+      if ((x == 0 && y%20==0)||(x == WIDTH && y%20==0)||(x%20==0 && y == 0)||(x%20 == 0 && y == HEIGHT)){
+        pickMe=true;
+       }
+       return pickMe;
   }
 
   // Don't touch the code below
