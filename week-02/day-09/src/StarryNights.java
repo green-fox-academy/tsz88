@@ -21,6 +21,9 @@ public class StarryNights {
     //grey colors from hexadecimal codes
     ArrayList<String> greyColorArray = new ArrayList<>(Arrays.asList("#424242","#6b6b6b","#767676","#848484","#939393","#a3a3a3","#bcbcbc","#d6d6d6","#efefef"));
 
+    //could not find background color setting, drawing just a big black rectangle instead
+    graphics.setColor(Color.BLACK);
+    graphics.fillRect(0,0,WIDTH,HEIGHT);
 
     for (int i=0; i<70; i++){
       color = greyColorArray.get((int)(Math.random()*greyColorArray.size()));
@@ -56,4 +59,5 @@ public class StarryNights {
 
     }
   }
+
 }
