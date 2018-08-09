@@ -15,17 +15,23 @@ public class Checkerboard {
       if (rowNumber%2==1){
         while(x<WIDTH){
           blackTile(x,y,tileSize,graphics);
-          x
+          x+=tileSize;
+          whiteTile(x,y,tileSize,graphics);
         }
-
-
-
+      }
+      if (rowNumber%2==0){
+        while(x<WIDTH){
+          whiteTile(x,y,tileSize,graphics);
+          x+=tileSize;
+          blackTile(x,y,tileSize,graphics);
+        }
+      }
+      rowNumber+=1;
+      x=0;
+      y+=tileSize;
       }
     }
 
-
-
-  }
 
   public static void blackTile(int x, int y, int tileSize, Graphics graphics){
     graphics.setColor(Color.BLACK);
@@ -35,6 +41,9 @@ public class Checkerboard {
     graphics.setColor(Color.WHITE);
     graphics.fillRect(x, y, tileSize, tileSize);
   }
+  }
+
+
 
 
   // Don't touch the code below
