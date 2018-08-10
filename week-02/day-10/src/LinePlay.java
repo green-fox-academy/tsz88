@@ -7,9 +7,17 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class LinePlay {
   public static void mainDraw(Graphics graphics) {
 
+    //you can change the step size
+    int step = 30;
+    //green lines
     graphics.setColor(Color.GREEN);
-    for (int i = 0; i < WIDTH; i += 20) {
+    for (int i = 0; i < WIDTH; i += step) {
       graphics.drawLine(0,i,i,HEIGHT);
+    }
+    //pink lines
+    graphics.setColor(Color.magenta);
+    for (int i = 0; i < HEIGHT; i += step){
+      graphics.drawLine(i,0,WIDTH,i);
     }
   }
   // Don't touch the code below
