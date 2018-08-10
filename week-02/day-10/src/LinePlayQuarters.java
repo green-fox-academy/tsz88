@@ -10,7 +10,13 @@ public class LinePlayQuarters {
 
     //you can change the step size
     int step = 30;
-    for ()
+    int divisionNumber = 2;
+    //
+    int[][] currentStartingPoints = selectStartingPoints(divisionNumber);
+
+    for (int p = 0; p < divisionNumber*divisionNumber; p++){
+      greenPurplePattern(currentStartingPoints[p][0], currentStartingPoints[p][1], step,WIDTH/divisionNumber, HEIGHT/divisionNumber,graphics);
+    }
 
   }
   public static void greenPurplePattern(int x1, int y1, int step, int newWidth, int newHeight, Graphics graphics){
@@ -26,12 +32,18 @@ public class LinePlayQuarters {
     }
   }
   public static int[][] selectStartingPoints (int divisionNumber){
-    //divisionNumber means that the canvas is split to how many parts (on each side)
-    int[][] coordinates= new int[divisionNumber][2];
+    int[][] coordinates= new int[divisionNumber*divisionNumber][2];
     //creates x coordinates
-    for (int i = 0; i < divisionNumber; i+=WIDTH/divisionNumber){
-      coordinates[i][0]=WIDTH/divisionNumber*i;
+    for (int i = 0; i < divisionNumber; i ++){
+      for (int k = 0; k < divisionNumber; k++){
+        //x coordinate in one row
+        coordinates[i+k][0] = k*WIDTH/divisionNumber;
+        //y coordinate in a row
+        coordinates[i+k][1] = i*HEIGHT/divisionNumber;
+      }
     }
+    return coordinates;
+
 
 
   }
