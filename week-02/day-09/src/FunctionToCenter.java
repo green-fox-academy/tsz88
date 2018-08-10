@@ -25,17 +25,11 @@ public class FunctionToCenter {
       y++;
     }
 
-
-
-
-
-
-
-
   }
   public static void lineToCenter(int x, int y, Graphics graphics){
     graphics.drawLine(x,y,WIDTH/2,HEIGHT/2);
   }
+
   public static Boolean selector(int x,int y){
     boolean pickMe = false;
     //it is true only in four cases:
