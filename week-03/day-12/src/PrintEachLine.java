@@ -7,7 +7,7 @@ import java.util.List;
 public class PrintEachLine {
   public static void main(String[] args){
 
-    Path myFilePath = Paths.get(my-file.txt);
+    Path myFilePath = Paths.get("my-file.txt");
     List<String> lines = null;
 
     try {
