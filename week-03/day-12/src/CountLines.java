@@ -13,6 +13,7 @@ public class CountLines {
 
     try{
       int fileLinesNumber = Files.readAllLines(path).size();
+      System.out.println(fileLinesNumber);
     } catch (IOException x){
       System.out.println(0);
     }
