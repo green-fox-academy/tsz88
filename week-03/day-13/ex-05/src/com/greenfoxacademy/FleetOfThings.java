@@ -22,7 +22,7 @@ public class FleetOfThings {
     fleet.add(two);
     fleet.add(three);
     fleet.add(four);
-    
+
     System.out.println(fleet);
 
   }
