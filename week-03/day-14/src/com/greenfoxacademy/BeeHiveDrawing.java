@@ -11,22 +11,26 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class BeeHiveDrawing{
   public static void mainDraw(Graphics graphics){
-//    int xpoints[] = {25, 145, 25, 145, 25};
-//    int ypoints[] = {25, 25, 145, 145, 25};
-//    int npoints = 5;
-//
-//    graphics.drawPolygon(xpoints, ypoints, npoints);
-    hexagon(30,30,500,graphics);
-    int yTile = 30; int size = 500;
-    System.out.println(yTile+Math.sqrt(3)/4*size);
-  }
-  //side of the hexagon is size/2 long
+    honeyComb(350,50,400,graphics);
+    }
+  //side of the hexagon is one size long
   public static void hexagon(int xTile, int yTile, int size, Graphics graphics){
-    int xpoints[] = {xTile, xTile+size/4, xTile+size*3/4, xTile+size, xTile+size*3/4, xTile+size/4};
-    int ypoints[] = {(int)(yTile+Math.sqrt(3)/4*size),yTile,yTile,(int)(yTile+Math.sqrt(3)/4*size),(int)(yTile+Math.sqrt(3)/2*size),(int)(yTile+Math.sqrt(3)/2*size)};
+    int height = (int)(Math.sqrt(3) / 2 * size);
+    int xpoints[] = {xTile-size/2, xTile, xTile+size, xTile+size*3/2, xTile+size, xTile};
+    int ypoints[] = {yTile+height,yTile,yTile,yTile+height,yTile+height*2,yTile+height*2};
     int npoints = 6;
 
     graphics.drawPolygon(xpoints, ypoints, npoints);
+  }
+  public static void honeyComb(int origoX, int origoY, int size, Graphics graphics){
+    if (size < 10){
+    } else {
+      hexagon(origoX,origoY,size,graphics);
+      int height = (int)(Math.sqrt(3) / 2 * size);
+      honeyComb(origoX,origoY,size/2,graphics);
+      honeyComb(origoX+size*3/4, origoY+height/2,size/2, graphics);
+      honeyComb(origoX,origoY+height, size/2, graphics);
+    }
   }
 
 

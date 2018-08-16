@@ -5,7 +5,6 @@ public class BunniesAgain {
     System.out.println(mutantBunnyEarCounterInt(12));
   }
 
-
   public static double mutantBunnyEarCounterDouble (int bunny){
     if (bunny == 0){
       return 0;
