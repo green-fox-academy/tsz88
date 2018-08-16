@@ -2,7 +2,7 @@ package com.greenfoxacademy;
 
 public class SumDigit {
   public static void main(String[] args){
-    System.out.println(digitSummer(123456));
+    System.out.println(digitSummer(5252));
   }
 
 
@@ -10,9 +10,7 @@ public class SumDigit {
     if (n == 0){
       return n;
     } else {
-      int k = n % 10;
-      n = n / 10;
-      return k + digitSummer(k-1);
+      
     }
   }
 }
