@@ -8,11 +8,11 @@ package com.greenfoxacademy;
 
 public class Fibonacci {
   public static void main(String[] args){
-    System.out.println(fibNumbAtIndex(10));
+    System.out.println(fibNumbAtIndex(9));
   }
 
   public static int fibNumbAtIndex(int index){
-    if (index <= 1){
+    if (index == 0 || index == 1){
       return index;
     } else {
       int k = fibNumbAtIndex(index-1)+fibNumbAtIndex(index-2);
