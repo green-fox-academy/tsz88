@@ -10,7 +10,7 @@ public class SumDigit {
     if (n == 0){
       return n;
     } else {
-      
+      return digitSummer(n/10) + n % 10;
     }
   }
 }
