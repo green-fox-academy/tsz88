@@ -6,6 +6,6 @@ public class Main {
     SharpieSet rainbow = new SharpieSet();
     Sharpie highlighter = new Sharpie("yellow",4.0);
     rainbow.add(highlighter);
-    
+
   }
 }
