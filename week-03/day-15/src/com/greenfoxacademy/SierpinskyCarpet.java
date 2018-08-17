@@ -16,8 +16,15 @@ public class SierpinskyCarpet {
       graphics.fillRect(x, y, size,size);
       //left side column
       fractalPattern(size/3,x-size*2/3, y-size*2/3, graphics);
-      fractalPattern(size/3,x-size*2/3, y+size*1/3, graphics);
+      fractalPattern(size/3,x-size*2/3, y+size/3, graphics);
       fractalPattern(size/3,x-size*2/3, y+size*4/3, graphics);
+      //center
+      fractalPattern(size/3, x+size/3, y-size*2/3, graphics);
+      fractalPattern(size/3, x+size/3, y+size*4/3, graphics);
+      //right side column
+      fractalPattern(size/3, x+size*4/3, y-size*2/3, graphics);
+      fractalPattern(size/3, x+size*4/3, y+size/3, graphics);
+      fractalPattern(size/3, x+size*4/3, y+size*4/3, graphics);
 
 
     }
