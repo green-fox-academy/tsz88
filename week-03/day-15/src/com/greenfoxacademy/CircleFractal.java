@@ -1,5 +1,7 @@
 package com.greenfoxacademy;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -8,18 +10,18 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class CircleFractal {
   public static void mainDraw(Graphics graphics){
-    theUnit(200,260,260,graphics);
+    fractalDrawer(200,260,260,graphics);
 
 
   }
   public static void theUnit(int ray, int xOfOrigo, int yOfOrigo, Graphics graphics){
     graphics.drawOval(xOfOrigo-ray,yOfOrigo-ray,2*ray, 2*ray);
   }
-  public static void fractalDrawer(int size, int x, int y, Graphics graphics){
-    if(size < 10){
+  public static void fractalDrawer(int ray, int xCenter, int yCenter, Graphics graphics){
+    if(ray < 10){
     } else {
-
-    theUnit(size/2, x, y+(size/3),graphics);
+      theUnit(ray, xCenter, yCenter,graphics);
+      fractalDrawer(ray/2, xCenter-(int)(Math.sqrt(3)/4*ray),yCenter+ray/4,graphics);
     }
   }
 
