@@ -31,6 +31,10 @@ public class HexagonFractal {
       basicUnit(side, x, y, graphics);
       fractalHexagons(side/3, x, y, graphics);
       fractalHexagons(side/3, x+side*2/3, y, graphics);
+      fractalHexagons(side/3, x+side, y+(int)(Math.sqrt(3)/3*side),graphics);
+      fractalHexagons(side/3, x+side*2/3, y+(int)(2*Math.sqrt(3)/3*side), graphics);
+      fractalHexagons(side/3, x, y+(int)(2*Math.sqrt(3)/3*side), graphics);
+      fractalHexagons(side/3, x-side/3, y+(int)(Math.sqrt(3)/3*side), graphics);
     }
   }
 
