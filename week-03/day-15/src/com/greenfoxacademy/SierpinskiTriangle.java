@@ -8,10 +8,26 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SierpinskiTriangle {
   public static void mainDraw(Graphics graphics){
-    // draw a red horizontal line to the canvas' middle.
-    // draw a green vertical line to the canvas' middle.
+    recursiveTriangles(1000,0,0,graphics);
 
+  }
+  public static void basicTriangle(int size, int x, int y, Graphics graphics){
+    int height = (int)(Math.sqrt(3)/2*size);
+    int[] xPoints = {x, x+size, x+size/2};
+    int[] yPoints = {y, y, y+height};
+    int nPoints = 3;
 
+    graphics.drawPolygon(xPoints,yPoints,nPoints);
+  }
+
+  public static void recursiveTriangles(int size, int x, int y, Graphics graphics){
+    if(size < 10){
+    } else {
+      basicTriangle(size, x, y, graphics);
+      recursiveTriangles(size/2, x, y, graphics);
+      recursiveTriangles(size/2, x+size/2, y, graphics);
+      recursiveTriangles(size/2, x+size/4, y+(int)(Math.sqrt(3)/2*size)/2, graphics);
+    }
   }
 
   // Don't touch the code below
