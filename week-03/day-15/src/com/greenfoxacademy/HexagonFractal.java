@@ -1,5 +1,7 @@
 package com.greenfoxacademy;
 
+import sun.java2d.windows.GDIRenderer;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -8,7 +10,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class HexagonFractal {
   public static void mainDraw(Graphics graphics){
-    basicUnit(450,300,50,graphics);
+    fractalHexagons(450,300,50,graphics);
 
 
 
@@ -21,6 +23,15 @@ public class HexagonFractal {
     int[] yPoints = {y, y, y + height, y + height * 2, y + height * 2, y + height};
 
     graphics.drawPolygon(xPoints,yPoints,6);
+  }
+
+  public static void fractalHexagons(int side, int x, int y, Graphics graphics){
+    if(side < 5){
+    } else {
+      basicUnit(side, x, y, graphics);
+      fractalHexagons(side/3, x, y, graphics);
+      fractalHexagons(side/3, x+side*2/3, y, graphics);
+    }
   }
 
   // Don't touch the code below
