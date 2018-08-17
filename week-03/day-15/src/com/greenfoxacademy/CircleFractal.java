@@ -8,12 +8,19 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class CircleFractal {
   public static void mainDraw(Graphics graphics){
-    baseUnit(500,0,0,graphics);
+    theUnit(200,260,260,graphics);
 
 
   }
-  public static void baseUnit(int size, int x, int y, Graphics graphics){
-    graphics.drawOval(x,y,size,size);
+  public static void theUnit(int ray, int xOfOrigo, int yOfOrigo, Graphics graphics){
+    graphics.drawOval(xOfOrigo-ray,yOfOrigo-ray,2*ray, 2*ray);
+  }
+  public static void fractalDrawer(int size, int x, int y, Graphics graphics){
+    if(size < 10){
+    } else {
+
+    theUnit(size/2, x, y+(size/3),graphics);
+    }
   }
 
   // Don't touch the code below
