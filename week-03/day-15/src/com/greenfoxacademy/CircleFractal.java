@@ -8,9 +8,12 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class CircleFractal {
   public static void mainDraw(Graphics graphics){
+    baseUnit(500,0,0,graphics);
 
 
-
+  }
+  public static void baseUnit(int size, int x, int y, Graphics graphics){
+    graphics.drawOval(x,y,size,size);
   }
 
   // Don't touch the code below
