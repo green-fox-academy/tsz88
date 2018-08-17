@@ -22,6 +22,7 @@ public class CircleFractal {
     } else {
       theUnit(ray, xCenter, yCenter,graphics);
       fractalDrawer(ray/2, xCenter-(int)(Math.sqrt(3)/4*ray),yCenter+ray/4,graphics);
+      fractalDrawer(ray/2, xCenter,yCenter-ray/2,graphics);
     }
   }
 
