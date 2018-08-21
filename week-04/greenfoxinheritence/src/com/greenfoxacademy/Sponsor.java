@@ -12,7 +12,7 @@ public class Sponsor extends Person {
     hiredStudents += 1;
   }
 
-  public void getGoal{
+  public void getGoal(){
     System.out.println("Hire brilliant junior software developers.");
   }
 
@@ -22,7 +22,7 @@ public class Sponsor extends Person {
     hiredStudents = 0;
   }
 
-  public Student(String name, int age, String gender, String company){
+  public Sponsor(String name, int age, String gender, String company){
     super(name, age, gender);
     this.company = company;
     hiredStudents = 0;

@@ -4,7 +4,7 @@ public class Mentor extends Person{
 
   String level;
 
-  public void getGoal{
+  public void getGoal(){
     System.out.println("Educate brilliant junior software developers.");
   }
 
