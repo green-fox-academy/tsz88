@@ -1,6 +1,6 @@
 package com.greenfoxacademy;
 
-public class Student extends Person {
+public class Student extends Person implements Cloneable {
   String previousOrganisation;
   int skippedDays;
 
@@ -14,6 +14,13 @@ public class Student extends Person {
 
   public void skipDays(int days){
     skippedDays += days;
+  }
+
+  //Interface method
+  public Student clone(Student student){
+    Student clone = new Student(student.name,student.age,student.gender, student.previousOrganisation);
+    clone.skippedDays = student.skippedDays;
+    return  clone;
   }
 
   //constructors
