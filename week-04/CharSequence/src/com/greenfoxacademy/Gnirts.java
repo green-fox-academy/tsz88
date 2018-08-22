@@ -12,10 +12,14 @@ public class Gnirts implements CharSequence {
   }
 
   public char charAt(int index) {
-    return whatever.charAt(index);
+    return whatever.charAt((whatever.length()-1)-index);
   }
 
-  public CharSequence subSequence(int start, int end) {
-    return whatever.subSequence(start,end);
+  public String subSequence(int start, int end) {
+    String y = "";
+    for (int i = (whatever.length()-1)-start; i >= (whatever.length()-1)-end; i--){
+      y = y + whatever.substring(i, i + 1);
+    }
+    return y;
   }
 }
