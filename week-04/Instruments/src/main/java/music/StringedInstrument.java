@@ -8,6 +8,6 @@ abstract public class StringedInstrument extends Instrument{
   }
 
   public void play(){
-    System.out.println(getClass().getName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound());
+    System.out.println(getClass().getSimpleName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound());
   }
 }

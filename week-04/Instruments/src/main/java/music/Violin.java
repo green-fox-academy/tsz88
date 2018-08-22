@@ -5,6 +5,10 @@ public class Violin extends StringedInstrument {
     numberOfStrings = 4;
   }
 
+  public Violin(int string){
+    numberOfStrings = string;
+  }
+
   public String sound(){
     return "Screech";
   }
