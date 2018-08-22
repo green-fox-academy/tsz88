@@ -1,13 +1,13 @@
 package main.java.music;
 
-public class StringedInstrument extends Instrument{
+abstract public class StringedInstrument extends Instrument{
   protected int numberOfStrings;
 
-
-  public void sound(){
+  public String sound(){
+    return "sound";
   }
 
   public void play(){
-    sound();
+    System.out.println(getClass().getName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound());
   }
 }
