@@ -11,7 +11,7 @@ public class LetterCounterTest {
   @Test
   public void oneLetterRepeatedAsInput(){
     LetterCounter example = new LetterCounter("xxxxx");
-    HashMap awesome = new HashMap<String, int>();
+    HashMap awesome = new HashMap<String, Integer>();
     awesome.put("x",5);
     Assert.assertEquals(awesome, example.countThem());
   }
