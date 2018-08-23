@@ -9,6 +9,9 @@ public class Sum {
     for (int i = 0; i < x.size(); i++){
       sum += x.get(i);
     }
+    if (x.isEmpty()){
+      throw new NullPointerException();
+    }
     return sum;
   }
 }
