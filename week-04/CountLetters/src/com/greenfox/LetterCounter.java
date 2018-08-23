@@ -11,6 +11,8 @@ public class LetterCounter {
 
   public HashMap countThem(){
     HashMap letters = new HashMap();
-    
+    for (int i = 0; i < x.length(); i++){
+
+    }
   }
 }
