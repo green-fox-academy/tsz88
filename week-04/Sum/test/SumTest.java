@@ -33,7 +33,7 @@ public class SumTest {
   @Test
   public void nullStarterForSum() {
     ArrayList<Integer> q = new ArrayList<>(Arrays.asList(null));
-    Assert.assertEquals(0, x.sumMaker(q));
+    Assert.assertEquals(0, x.sumMaker(null));
   }
 
 }
