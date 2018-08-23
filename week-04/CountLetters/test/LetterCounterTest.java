@@ -16,4 +16,13 @@ public class LetterCounterTest {
     Assert.assertEquals(awesome, example.countThem());
   }
 
+  @Test
+  public void variousLetterInput(){
+    LetterCounter example = new LetterCounter("baba");
+    HashMap awesome = new HashMap<String, Integer>();
+    awesome.put("a",2);
+    awesome.put("b",2);
+    Assert.assertEquals(awesome, example.countThem());
+  }
+
 }
