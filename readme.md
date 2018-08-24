@@ -24,3 +24,5 @@ https://github.com/tsz88/git-lesson-repository
 
 The main repository:
 https://github.com/green-fox-academy/tsz88
+
+Link to the ToDo excersize: https://github.com/tsz88/todo-app
