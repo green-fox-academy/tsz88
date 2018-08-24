@@ -7,18 +7,21 @@ public class Anagram {
       return false;
     } else {
       //erase the same characters
-
-      for (int i = 0; i < b.length(); i++) {
+     for (int i = 0; i < a.length(); i++) {
         int j = 0;
+        if (b.isEmpty()){
+          break;
+        }
         while (j < b.length()) {
-          if (b.charAt(j) == a.charAt(0)) {
-            a = a.substring(1);
+          if (b.charAt(j) == a.charAt(i)) {
+            b = b.substring(0,j) + b.substring(j+1);
+           // a = a.substring(1);
             break;
           } else {
             j++;
           }
         }
-      } return a.isEmpty();
+      } return b.isEmpty();
     }
   }
 }
