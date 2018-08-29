@@ -16,6 +16,12 @@ public class TrickyAverageTest {
   @Test
   public void getTrickyAvgTest2() {
     int[] example = {3, 3, 3, 3, 3};
-    Assert.assertEquals(4.5,TrickyAverage.getTrickyAvg(example),0.1);
+    Assert.assertEquals(1.5,TrickyAverage.getTrickyAvg(example),0.1);
+  }
+
+  @Test
+  public void getTrickyAvgTest3() {
+    int[] example = {1, 3, 5, 7};
+    Assert.assertEquals(0.5,TrickyAverage.getTrickyAvg(example),0.1);
   }
 }
