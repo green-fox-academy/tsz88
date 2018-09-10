@@ -2,24 +2,41 @@ package com.greenfox;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+
 
 public class Main {
 
   public static void main(String[] args) {
-    String text = "AztAMinDenIT";
+    String text = "AztAMinDenIjjjjT";
     System.out.println(countUpperCaseLetters(text));
 
     ArrayList<String> cities = new ArrayList<>(Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS"));
     System.out.println(startsWithAEndsWithI(cities));
+
+    System.out.println(frequencyOfLetters(text));
   }
 
+  // exercise 7 unique letters with frequency in given text
+  private static Map<Character, Long> frequencyOfLetters(String text) {
+    Map<Character, Long> countedLetters =
+        text.chars()
+            .mapToObj(c -> (char)c)
+            .collect(Collectors.groupingBy(
+                c -> c, Collectors.counting()));
+    return countedLetters;
+  }
+
+
+  //exercise 6
   private static ArrayList<String> startsWithAEndsWithI(ArrayList<String> cities) {
     //this works with capital letter city-names only
     return (ArrayList<String>) cities.stream()
-            .filter(city -> city.charAt(0) == 'A')
-            .filter(city -> city.charAt(city.length()-1) == 'I')
-            .collect(Collectors.toList());
+        .filter(city -> city.charAt(0) == 'A')
+        .filter(city -> city.charAt(city.length() - 1) == 'I')
+        .collect(Collectors.toList());
   }
 
 
