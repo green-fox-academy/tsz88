@@ -1,0 +1,40 @@
+html {
+    font-family: 'Open Sans', sans-serif; 
+}
+
+table {
+    border-collapse: collapse;
+    border: 32px solid #80bfff;
+    width: 40em;
+    color: #808080;
+    
+}
+
+thead {
+    background-color: black;
+    color: #E0E0E0;  
+    font-weight: lighter;
+    font-size: 18px;
+    font: lighter;
+    border-bottom: 3px solid #808080; 
+    text-align: left;  
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #808080;
+}
+
+tbody {
+    background:  	#F0F0F0;
+    
+}
+
+tbody tr:nth-child(odd){
+    background:  	#E0E0E0;
+
+}
+
+.dollar::before {
+    content: '$ ';
+}
