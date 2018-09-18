@@ -14,9 +14,9 @@
                 <th>ANIMALTYPE</th>
             </tr>
             <tr>
-                <td th:text="${name}"></td>
-                <td th:text="${balance}"></td>
-                <td th:text="${animalType}"></td>
+                <td th:text="${account.name}" />
+                <td th:text="${#numbers.formatDecimal(account.balance,0,2)}+' Zebra'" />
+                <td th:text="${account.animalType}" />
             </tr>
     </div>
 

@@ -12,7 +12,12 @@ public class SimbaController {
   @RequestMapping("/show")
   public String showBankAccount(Model model){
     BankAccount simbas = new BankAccount("Simba",2000, "lion" );
-    model.addAttribute("BankAccount", simbas);
+    model.addAttribute("account", simbas);
     return "showbankaccount";
+  }
+
+  @RequestMapping("/htmlception")
+  public String inception() {
+    return "htmlception";
   }
 }
