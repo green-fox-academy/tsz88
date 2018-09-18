@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Multiple accounts</title>
+</head>
+<body>
+<h1>
+    Detailed accounts
+</h1>
+
+<table>
+    <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Species</th>
+    <tr th:each="animal : ${list}">
+    <td th:text="${animalStat.index}"></td>
+        <td th:text="${animal.name}"></td>
+        <td th:text="${#numbers.formatDecimal(animal.balance,0,2)}"></td>
+        <td th:text="${animal.animalType}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
