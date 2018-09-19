@@ -27,9 +27,20 @@ public class UtilityService {
     String a = "@";
     String b = ".";
     EmailValidator x = new EmailValidator();
-    //return x.isValid(s,null);
+    //return x.isValid(s,null);  this does not mind dots
     return (s.contains(a) && s.contains(b));
   }
 
+  public static String encodeCeasarCode(int shift, String text){
+    //https://stackoverflow.com/questions/19108737/java-how-to-implement-a-shift-cipher-caesar-cipher
+
+    String output = "";
+    char c;
+    for (int i = 0; i < text.length(); i++) {
+      c = (char)(text.charAt(i) + (shift % 26));
+      output += c;
+    }
+    return output;
+  }
 
 }
