@@ -16,7 +16,7 @@
         <th>Balance</th>
         <th>Species</th>
     <tr th:each="animal : ${list}">
-    <td th:text="${animalStat.index}"></td>
+        <td th:text="${animalStat.index}"></td>
         <td th:text="${animal.name}"></td>
         <td th:text="${#numbers.formatDecimal(animal.balance,0,2)}"></td>
         <td th:text="${animal.animalType}"></td>
