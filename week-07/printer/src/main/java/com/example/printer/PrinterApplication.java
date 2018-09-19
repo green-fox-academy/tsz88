@@ -11,7 +11,6 @@ public class PrinterApplication implements CommandLineRunner {
 
   public static void main(String[] args) {
     SpringApplication.run(PrinterApplication.class, args);
-    @RequestMapping("/useful")
   }
 
   @Override
@@ -19,8 +18,6 @@ public class PrinterApplication implements CommandLineRunner {
     printer.log("hello");
     newColor.printColor();
   }
-
-
 
 
   @Autowired
