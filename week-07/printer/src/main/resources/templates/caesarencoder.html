@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Encode to Caesar-code</title>
 </head>
 <body>
-<h2>
-
+    <h2>Write your shift and text for encoding in the url like this:
+    /useful/caesarencoder/{<b>shift</b>}/{<b>text</b>} !</h2>
+    <br/>
+    <p th:text="${encodedText}">
 </body>
 </html>

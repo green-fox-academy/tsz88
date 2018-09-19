@@ -34,9 +34,17 @@ public class Task3Controller {
      return "email";
   }
 
-  @GetMapping("/useful/caesarencoder/{shift}/{text}")
-  public String encoder(@PathVariable("shift") int shift, @PathVariable("text") String text){
-
+  @GetMapping("useful/caesarencoder/")
+  public String something(){
+    return "caesarencoder";
+  }
+  
+  @RequestMapping("/useful/caesarencoder/{shift}/{text}")
+  public String encoder(@PathVariable("shift") int shift, @PathVariable("text") String text, Model model){
+    if (text.length() > 0){
+    model.addAttribute("encodedText", UtilityService.encodeCeasarCode(shift,text));} else {
+      model.addAttribute("encodedText", "There is no text provided to encode!");
+    }
     return "caesarencoder";
   }
 
