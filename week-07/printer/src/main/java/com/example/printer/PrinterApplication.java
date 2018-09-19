@@ -15,9 +15,13 @@ public class PrinterApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     printer.log("hello");
+    newColor.printColor();
 
   }
 
   @Autowired
   private Printer printer;
+
+  @Autowired
+  private MyColor newColor;
 }
