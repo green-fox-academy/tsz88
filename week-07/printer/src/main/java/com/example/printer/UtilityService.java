@@ -31,16 +31,22 @@ public class UtilityService {
     return (s.contains(a) && s.contains(b));
   }
 
-  public static String encodeCeasarCode(int shift, String text){
-    //https://stackoverflow.com/questions/19108737/java-how-to-implement-a-shift-cipher-caesar-cipher
+  public static String encodeCeasarCode(int shift, String text) {
+    //https://www.rosettacode.org/wiki/Caesar_cipher#Java
 
     String output = "";
-    char c;
-    for (int i = 0; i < text.length(); i++) {
-      c = (char)(text.charAt(i) + (shift % 26));
-      output += c;
+    shift = shift % 26 + 26;
+    for (char i : text.toCharArray()) {
+      if (Character.isLetter(i)) {
+        if (Character.isUpperCase(i)) {
+          output += (char) ('A' + (i - 'A' + shift) % 26);
+        } else {
+          output += (char) ('a' + (i - 'a' + shift) % 26);
+        }
+      } else {
+        output += i;
+      }
     }
     return output;
   }
-
 }
