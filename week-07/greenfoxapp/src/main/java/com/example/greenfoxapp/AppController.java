@@ -9,6 +9,6 @@ public class AppController {
 
   @RequestMapping("/gfa")
   public String indexPageData(Model model){
-
+    return "mainpage";
   }
 }
