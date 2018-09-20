@@ -7,9 +7,9 @@
 <body>
 <h1>Welcome to Programmer Fox Club!</h1>
 <p>Please provide a name, so you can associate it to your pet!</p>
-<form method="get">
+<form method="post">
     <label>Name</label>
-    <input th:type="${foxName}" name="name" />
+    <input type="text" id="name" name="name" />
     <input type="submit" value="GO"/>
 </form>
 
