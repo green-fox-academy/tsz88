@@ -8,7 +8,11 @@ public class MainController {
 
   @RequestMapping("/")
   public String mainPage(){
-
     return "index";
+  }
+
+  @RequestMapping("/login")
+  public String loginPage() {
+    return "login";
   }
 }
