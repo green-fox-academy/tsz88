@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Fox {
 
-  String name;
-  ArrayList<String> tricks;
-  String food;
-  String drink;
+  private String name;
+  private ArrayList<String> tricks;
+  private String food;
+  private String drink;
 
   public ArrayList<String> getTricks() {
     return tricks;

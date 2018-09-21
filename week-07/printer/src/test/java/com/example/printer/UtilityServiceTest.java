@@ -11,4 +11,9 @@ public class UtilityServiceTest {
   public void encodeCeasarCodeTest() {
     Assert.assertEquals("bCd",UtilityService.encodeCeasarCode(1,"aBc"));
   }
+
+  @Test
+  public void encodeCeasarCypher2Test() {
+    Assert.assertEquals("bCd",UtilityService.encode("aBc",1));
+  }
 }

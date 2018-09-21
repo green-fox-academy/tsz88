@@ -14,22 +14,17 @@ public class MainController {
   @RequestMapping("/")
   public String mainPage(@RequestParam(value = "name", required = false) String foxName, Model model){
       model.addAttribute("fox", foxService.findFoxByName(foxName));
-//      Fox thisFox = foxService.findFoxByName(foxName);
-//      model.addAttribute("name",thisFox.getName());
-//      model.addAttribute("food", thisFox.getFood());
-//      model.addAttribute("drink", thisFox.getDrink());
-//      model.addAttribute("trickNumber", thisFox.getTricks().size());
     return "index";
   }
 
   @GetMapping("/login")
-  public String loginPage() {
-    return "login";
-  }
-//(@ModelAttribute(value="foxName") Fox fox){
-  @PostMapping("/login")
-  public String loginAddsName(@RequestParam(value="name") String name){
-    foxService.addToAllFoxList(new Fox(name));
+  public String loginPage(@RequestParam(value="name") String name) {
+    if (!foxService.allFoxList.containsKey(name)){
+      Fox nameFox = new Fox(name);
+      foxService.allFoxList.put(name, nameFox);
+    }
     return "redirect:/?name=" + name;
   }
+//(@ModelAttribute(value="foxName") Fox fox){
+
 }

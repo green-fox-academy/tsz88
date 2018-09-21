@@ -2,10 +2,8 @@ package com.example.printer;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class Task3Controller {
@@ -38,7 +36,21 @@ public class Task3Controller {
   public String something(){
     return "caesarencoder";
   }
-  
+
+  @GetMapping(value="prettyCaesarCipher")
+  public String prettyfied(Model model){
+
+    String encoded = UtilityService.encode(secretmessage, offset);
+    model.addAttribute("outputJibberish", encoded);
+    return "pretty2/?encoded=" + encoded;
+  }
+
+  @GetMapping(value="pretty2")
+  public String pretty2(@RequestParam String encoded, Model model){
+    model.addAttribute("encodedMessage", encoded);
+    return "pretty2";
+  }
+
   @RequestMapping("/useful/caesarencoder/{shift}/{text}")
   public String encoder(@PathVariable("shift") int shift, @PathVariable("text") String text, Model model){
     if (text.length() > 0){
