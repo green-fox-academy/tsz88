@@ -11,7 +11,7 @@ public class MainController {
   @Autowired
   FoxService foxService;
 
-  @RequestMapping("/")
+  @GetMapping("/")
   public String mainPage(@RequestParam(value = "name", required = false) String foxName, Model model){
       model.addAttribute("fox", foxService.findFoxByName(foxName));
     return "index";
@@ -19,6 +19,7 @@ public class MainController {
 
   @GetMapping("/login")
   public String loginPageGet(){
+    foxService.populateAllFoxMap();
     return "login";
   }
   @PostMapping("/login")
@@ -31,4 +32,10 @@ public class MainController {
   }
 //(@ModelAttribute(value="foxName") Fox fox){
 
+
+  @GetMapping("/nutritionStore")
+  public String foodSelection(@RequestParam(value="name", required = false) String name, Model model){
+    model.addAttribute("fox",foxService.findFoxByName(name));
+    return "nutritionStore";
+  }
 }
