@@ -18,6 +18,10 @@ public class MainController {
   }
 
   @GetMapping("/login")
+  public String loginPageGet(){
+    return "login";
+  }
+  @PostMapping("/login")
   public String loginPage(@RequestParam(value="name") String name) {
     if (!foxService.allFoxList.containsKey(name)){
       Fox nameFox = new Fox(name);
