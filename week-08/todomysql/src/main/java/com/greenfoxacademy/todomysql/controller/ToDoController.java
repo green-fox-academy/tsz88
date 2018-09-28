@@ -1,11 +1,10 @@
-package com.greenfoxacademy.todomini.controller;
+package com.greenfoxacademy.todomysql.controller;
 
-import com.greenfoxacademy.todomini.repository.ToDoRepository;
+import com.greenfoxacademy.todomysql.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/todo")
