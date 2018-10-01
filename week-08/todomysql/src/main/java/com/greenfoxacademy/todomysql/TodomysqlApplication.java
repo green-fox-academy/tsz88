@@ -1,6 +1,6 @@
 package com.greenfoxacademy.todomysql;
 
-import com.greenfoxacademy.todomysql.model.ToDo;
+import com.greenfoxacademy.todomysql.models.ToDo;
 import com.greenfoxacademy.todomysql.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,7 +19,5 @@ public class TodomysqlApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    toDoRepository.save(new ToDo("Learn MySQL"));
-    toDoRepository.save(new ToDo("What is JPA???"));
-  }
+    }
 }

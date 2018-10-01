@@ -1,4 +1,4 @@
-package com.greenfoxacademy.todomysql.model;
+package com.greenfoxacademy.todomysql.models;
 
 import javax.persistence.*;
 
@@ -8,6 +8,10 @@ public class ToDo {
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id")
   long id;
+
+  private String title;
+  private boolean urgent;
+  private boolean done;
 
   public void setId(long id) {
     this.id = id;
@@ -40,10 +44,6 @@ public class ToDo {
   public boolean getDone() {
     return done;
   }
-
-  private String title;
-  private boolean urgent;
-  private boolean done;
 
   public ToDo(){
   }
