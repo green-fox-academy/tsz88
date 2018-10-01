@@ -40,11 +40,11 @@ public class MainRestController {
   }
 
   @PostMapping("/dountil/{action}")
-  public Object recursionIsLife(@PathVariable(value = "action") String action, @RequestBody Until untilObject){
-    int until = untilObject.getUntil();
+  public Object recursionIsLife(@PathVariable(value = "action") String action, @RequestBody(required = false) Until untilObject){
     if (untilObject == null){
       return new ErrorObject("dountil");
     }
+    int until = untilObject.getUntil();
     NumberForDoUntil x = new NumberForDoUntil(action,until);
     return x;
   }
