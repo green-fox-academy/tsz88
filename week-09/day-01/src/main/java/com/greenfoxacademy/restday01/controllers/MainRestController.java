@@ -1,6 +1,8 @@
 package com.greenfoxacademy.restday01.controllers;
 
 import com.greenfoxacademy.restday01.models.*;
+import com.greenfoxacademy.restday01.repository.RestLogRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -9,12 +11,17 @@ import java.util.Map;
 @RestController
 public class MainRestController {
 
+  @Autowired
+  RestLogRepository restLogRepository;
+
   @GetMapping("/doubling")
   public Object doubler(@RequestParam(value = "input", required = false) Integer input) {
     if (input == null) {
+      restLogRepository.save(new Entities("/doubling", "none"));
       return new ErrorObject("doubler");
     } else {
       NumbersForPlaying current = new NumbersForPlaying(input);
+      restLogRepository.save(new Entities("/doubling", "input="+input));
       return current;
     }
   }
