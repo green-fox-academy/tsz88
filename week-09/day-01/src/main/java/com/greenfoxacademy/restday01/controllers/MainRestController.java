@@ -1,14 +1,9 @@
 package com.greenfoxacademy.restday01.controllers;
 
-import com.greenfoxacademy.restday01.models.Appender;
-import com.greenfoxacademy.restday01.models.ErrorObject;
-import com.greenfoxacademy.restday01.models.NumbersForPlaying;
-import com.greenfoxacademy.restday01.models.WelcomeMessage;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.greenfoxacademy.restday01.models.*;
+import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.Map;
 
 @RestController
@@ -42,5 +37,15 @@ public class MainRestController {
   @GetMapping("appenda/{appendable}")
   public Object appender(@PathVariable(value = "appendable", required = true) String text){
     return new Appender(text);
+  }
+
+  @PostMapping("/dountil/{action}")
+  public Object recursionIsLife(@PathVariable(value = "action") String action, @RequestBody Until untilObject){
+    int until = untilObject.getUntil();
+    if (untilObject == null){
+      return new ErrorObject("dountil");
+    }
+    NumberForDoUntil x = new NumberForDoUntil(action,until);
+    return x;
   }
 }

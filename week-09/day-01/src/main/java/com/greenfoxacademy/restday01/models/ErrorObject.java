@@ -14,6 +14,10 @@ public class ErrorObject {
     if (method.equals("greeterNoTitle")){
       error = "Please provide a title!";
     }
+
+    if (method.equals("dountil")){
+      error = "Please provide a number!";
+    }
   }
 
   public ErrorObject(){
