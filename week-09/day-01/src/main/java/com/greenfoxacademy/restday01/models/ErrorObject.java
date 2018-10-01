@@ -18,6 +18,10 @@ public class ErrorObject {
     if (method.equals("dountil")){
       error = "Please provide a number!";
     }
+
+    if (method.equals("arrays")){
+      error = "Please provide what to do with the numbers!";
+    }
   }
 
   public ErrorObject(){
