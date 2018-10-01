@@ -1,5 +1,6 @@
 package com.greenfoxacademy.restday01.controllers;
 
+import com.greenfoxacademy.restday01.models.ErrorObject;
 import com.greenfoxacademy.restday01.models.NumbersForPlaying;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,11 +13,12 @@ import java.util.List;
 public class MainRestController {
 
   @GetMapping("/doubling")
-  public NumbersForPlaying doubler(@RequestParam(value = "input", required = false) Integer input){
-    NumbersForPlaying current = new NumbersForPlaying(input);
-//    if (input == null){
-//      return Arrays.asList("error","Please provide an item!");
-//    }
-    return current;
+  public Object doubler(@RequestParam(value = "input", required = false) Integer input){
+    if (input == null){
+      return new ErrorObject();
+    } else {
+      NumbersForPlaying current = new NumbersForPlaying(input);
+      return current;
+    }
   }
 }
