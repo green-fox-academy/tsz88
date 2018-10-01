@@ -4,9 +4,22 @@ public class ErrorObject {
 
   String error;
 
+  public ErrorObject(String method) {
+    if (method.equals("doubler")) {
+      error = "Please provide an input!";
+    }
+    if (method.equals("greeterNoName")) {
+      error = "Please provide a name!";
+    }
+    if (method.equals("greeterNoTitle")){
+      error = "Please provide a title!";
+    }
+  }
+
   public ErrorObject(){
     error = "Please provide an input!";
   }
+
 
   public String getError() {
     return error;
