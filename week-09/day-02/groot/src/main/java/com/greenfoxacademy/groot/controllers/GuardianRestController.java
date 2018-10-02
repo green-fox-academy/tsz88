@@ -1,8 +1,8 @@
 package com.greenfoxacademy.groot.controllers;
 
-import com.greenfoxacademy.groot.models.ErrorMessages;
-import com.greenfoxacademy.groot.models.GrootDictionary;
-import com.greenfoxacademy.groot.models.YonduSpeedCalculator;
+import com.greenfoxacademy.groot.models.*;
+import com.greenfoxacademy.groot.services.GuardianShipService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +13,10 @@ import java.util.Map;
 
 @RestController
 public class GuardianRestController {
+
+  @Autowired
+  GuardianShipService guardianShipService;
+  SpaceShip rorasSpaceShip = new SpaceShip();
 
   @GetMapping("/groot")
   public Object grootTranslator(@RequestParam(value = "message", required = false) String message){
@@ -34,5 +38,18 @@ public class GuardianRestController {
     else {
       return new YonduSpeedCalculator(distance, time);
     }
+  }
+
+  @GetMapping("/rocket")
+  public Object rorasCargo(){
+    return rorasSpaceShip;
+  }
+
+  @GetMapping("/rocket/fill")
+  public Object loadTheShip(
+      @RequestParam(value = "caliber", required = false) String caliber,
+      @RequestParam(value = "amount", required = false) Integer amount){
+
+    NewLoadForSpaceShip load = new NewLoadForSpaceShip()
   }
 }
