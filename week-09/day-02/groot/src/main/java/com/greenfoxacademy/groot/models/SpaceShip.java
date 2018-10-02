@@ -5,10 +5,11 @@ public class SpaceShip {
   int caliber25;
   int caliber30;
   int caliber50;
-  String shipstatus = "empty";
+  String shipstatus;
   boolean ready;
 
   public SpaceShip() {
+    shipstatus = "empty";
   }
 
   public int getCaliber25() {
@@ -43,7 +44,7 @@ public class SpaceShip {
     this.shipstatus = shipstatus;
   }
 
-  public boolean isReady() {
+  public boolean getReady() {
     return ready;
   }
 

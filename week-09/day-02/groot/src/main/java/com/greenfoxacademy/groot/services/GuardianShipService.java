@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GuardianShipService {
 
-  private int maxCargo = 12500;
+  private double maxCargo = 12500;
 
   public void loadShip(NewLoadForSpaceShip load, SpaceShip spaceShip){
     if (load.getReceived().equals(".25")){
@@ -25,16 +25,15 @@ public class GuardianShipService {
   }
 
   public void updateShipStatus(SpaceShip spaceShip){
-    int currentStatusInt = (spaceShip.getCaliber25()
+    double currentStatusInt = (spaceShip.getCaliber25()
                                 + spaceShip.getCaliber30()
                                 + spaceShip.getCaliber50())
-                                / maxCargo
-                                * 100;
+                                / maxCargo * 100;
     if (currentStatusInt == 0){
       spaceShip.setShipstatus("empty");
     }
-    if (currentStatusInt < 0 ) {
-      spaceShip.setShipstatus(String.valueOf(currentStatusInt) + "%");
+    if (currentStatusInt > 0 ) {
+      spaceShip.setShipstatus(currentStatusInt + "%");
     }
     if (currentStatusInt == 100) {
       spaceShip.setShipstatus("full");

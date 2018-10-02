@@ -19,37 +19,41 @@ public class GuardianRestController {
   SpaceShip rorasSpaceShip = new SpaceShip();
 
   @GetMapping("/groot")
-  public Object grootTranslator(@RequestParam(value = "message", required = false) String message){
-    if (message == null){
+  public Object grootTranslator(@RequestParam(value = "message", required = false) String message) {
+    if (message == null) {
       return new ResponseEntity(new ErrorMessages("groot"), HttpStatus.BAD_REQUEST);
-    }
-    else {
+    } else {
       return new ResponseEntity(new GrootDictionary(message), HttpStatus.OK);
     }
   }
 
   @GetMapping("/yondu")
   public Object yondusArrow(
-        @RequestParam(value = "distance") Double distance,
-        @RequestParam(value = "time") Double time){
-    if (distance == null || time == null){
+      @RequestParam(value = "distance") Double distance,
+      @RequestParam(value = "time") Double time) {
+    if (distance == null || time == null) {
       return new ResponseEntity(new ErrorMessages(), HttpStatus.BAD_REQUEST);
-    }
-    else {
+    } else {
       return new YonduSpeedCalculator(distance, time);
     }
   }
 
   @GetMapping("/rocket")
-  public Object rorasCargo(){
+  public Object rorasCargo() {
     return rorasSpaceShip;
   }
 
   @GetMapping("/rocket/fill")
   public Object loadTheShip(
       @RequestParam(value = "caliber", required = false) String caliber,
-      @RequestParam(value = "amount", required = false) Integer amount){
+      @RequestParam(value = "amount", required = false) Integer amount) {
 
-    NewLoadForSpaceShip load = new NewLoadForSpaceShip()
+    if (caliber == null || amount == null) {
+      return new ResponseEntity("No caliber or amount specified.", HttpStatus.BAD_REQUEST);
+    }
+    NewLoadForSpaceShip load = new NewLoadForSpaceShip(caliber, amount);
+    guardianShipService.loadShip(load, rorasSpaceShip);
+    ShipStatusReport currentStatusReport = new ShipStatusReport(rorasSpaceShip, load);
+    return currentStatusReport;
   }
 }
