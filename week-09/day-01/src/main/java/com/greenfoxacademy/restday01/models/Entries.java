@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-public class Entities {
+public class Entries {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,9 @@ public class Entities {
   @Column (name = "data")
   String dataInvolvedInMethod;
 
-  public Entities(){}
+  public Entries(){}
 
-  public Entities(String endpoint, String data){
+  public Entries(String endpoint, String data){
     timestamp = new Timestamp(System.currentTimeMillis());
     this.endpoint = endpoint;
     this.dataInvolvedInMethod = data;

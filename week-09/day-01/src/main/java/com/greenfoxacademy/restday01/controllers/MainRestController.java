@@ -17,11 +17,11 @@ public class MainRestController {
   @GetMapping("/doubling")
   public Object doubler(@RequestParam(value = "input", required = false) Integer input) {
     if (input == null) {
-      restLogRepository.save(new Entities("/doubling", "none"));
+      restLogRepository.save(new Entries("/doubling", "none"));
       return new ErrorObject("doubler");
     } else {
       NumbersForPlaying current = new NumbersForPlaying(input);
-      restLogRepository.save(new Entities("/doubling", "input="+input));
+      restLogRepository.save(new Entries("/doubling", "input="+input));
       return current;
     }
   }
@@ -31,10 +31,13 @@ public class MainRestController {
     String name = params.get("name");
     String title = params.get("title");
     if (name == null) {
+      restLogRepository.save(new Entries("/greeter", "name=none&title="+title));
       return new ErrorObject("greeterNoName");
     } else if (title == null) {
+      restLogRepository.save(new Entries("/greeter", "name="+name+"&title=none"));
       return new ErrorObject("greeterNoTitle");
     } else {
+      restLogRepository.save(new Entries("/greeter", "name="+name+"&title=" + title));
       return new WelcomeMessage(name, title);
     }
   }
