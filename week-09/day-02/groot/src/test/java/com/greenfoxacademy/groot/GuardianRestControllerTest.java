@@ -39,4 +39,14 @@ public class GuardianRestControllerTest {
         .andExpect(status().isBadRequest())
         .andExpect(jsonPath("$.error", is("I am Groot!")));
   }
+
+  @Test
+  public void YonduCalculatorReadsParametersAndReturnsResultOK() throws Exception{
+    mockMvc.perform
+        (get("/yondu?distance=100.0&time=10.0"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.distance", is(100.0)))
+        .andExpect(jsonPath("$.time", is(10.0)))
+        .andExpect(jsonPath("$.speed", is(10.0)));
+  }
 }
