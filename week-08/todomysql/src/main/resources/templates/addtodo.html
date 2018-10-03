@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link href="../webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>Add new ToDo</title>
+</head>
+<body>
+<div class="container">
+    <h1>
+        Add a new ToDo!
+    </h1>
+    <br/>
+
+    <form th:object="${newTodo}" action="#" th:action="@{/addtodo}" method="post">
+        <label for="title">ToDo message</label>
+        <input id="title" type="text"  th:field="*{title}" placeholder="Write here your task to do"/>
+
+
+        <br/>
+        <p th:text="${errormessage}"></p>
+        <label for="urgent">Is it urgent?</label>
+        <input type="checkbox" id="urgent" th:field="*{urgent}"/>
+        <br/>
+        <label for="done">Is it done already?</label>
+        <input type="checkbox" id="done" th:field="*{done}" />
+
+        <br/>
+        <input class="btn btn-danger" type="submit" value="Submit" />
+    </form>
+
+<script src="../webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="../webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

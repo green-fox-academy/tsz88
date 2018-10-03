@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <style>
-        td {
-            border: 1px solid black;
-        }
-    </style>
+    <link href="../webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="UTF-8"/>
     <title>ToDo List</title>
 </head>
 <body>
-    <h1 style=text-transform:uppercase>
+<div class="container">
+    <h1>
         ToDos for today:
     </h1>
 
-    <table>
-        <tr style=text-transform:uppercase>
+    <br/>
+
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+        <tr class="table-dark">
             <th>ID</th>
             <th>Action</th>
             <th>status</th>
             <th>urgent</th>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="todo:${todolist}">
             <td th:text="${todo.id}"></td>
             <td th:text="${todo.title}"></td>
             <td th:text="${todo.done}"></td>
             <td th:text="${todo.urgent}"></td>
         </tr>
+        </tbody>
     </table>
+
+    <br/>
+    <a class="btn btn-info" href="/todo/addtodo" role="button">Add a new todo!</a>
+
+
+    <script src="../webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>

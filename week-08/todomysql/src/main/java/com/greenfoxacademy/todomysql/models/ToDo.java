@@ -13,6 +13,19 @@ public class ToDo {
   private boolean urgent;
   private boolean done;
 
+  public ToDo() {
+  }
+
+  public ToDo(String title) {
+    this.title = title;
+  }
+
+  public ToDo(String title, boolean urgency, boolean status) {
+    this.title = title;
+    urgent = urgency;
+    done = status;
+  }
+
   public void setId(long id) {
     this.id = id;
   }
@@ -45,16 +58,5 @@ public class ToDo {
     return done;
   }
 
-  public ToDo(){
-  }
 
-  public ToDo(String title){
-    this.title = title;
-  }
-
-  public ToDo(String title, boolean urgency, boolean status){
-    this.title = title;
-    urgent = urgency;
-    done = status;
-  }
 }
