@@ -16,7 +16,7 @@
         <label for="title">ToDo message</label>
         <input id="title" type="text"  th:field="*{title}" placeholder="Write here your task to do"/>
         <br/>
-        <p th:text="${errormessage}"></p>
+        <p class="text text-danger" th:text="${errormessage}"></p>
         <label for="urgent">Is it urgent?</label>
         <input type="checkbox" id="urgent" th:field="*{urgent}"/>
         <br/>

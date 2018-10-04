@@ -17,6 +17,8 @@ public class ToDoController {
   @Autowired
   ToDoService toDoService;
 
+  String generalMessageOnMainPage;
+
   @GetMapping("")
   public String listOnlyActive(@RequestParam(value = "isActive", required = false) boolean isActive, Model model){
     if(isActive){
@@ -24,13 +26,14 @@ public class ToDoController {
     else{
       model.addAttribute("todolist",toDoRepository.findAll());
     }
+    model.addAttribute("generalmessage", generalMessageOnMainPage);
     return "todolist";
   }
 
   @GetMapping("/addtodo")
   public String addToDoPageDisplay(Model model){
     model.addAttribute("newTodo", new ToDo());
-    model.addAttribute("errormessage", "");
+    model.addAttribute("errormessage", "\n");
     return "addtodo";
   }
 
@@ -44,5 +47,12 @@ public class ToDoController {
 
     toDoRepository.save(newTodo);
     return "redirect:/todo";
+  }
+
+  @GetMapping("/{id}/delete")
+  public String deleteTodo(@PathVariable(value = "id") Long id){
+    generalMessageOnMainPage = toDoRepository.findById(id).get().getTitle() + " successfully deleted.";
+    toDoRepository.deleteById(id);
+    return  "redirect:/todo";
   }
 }
