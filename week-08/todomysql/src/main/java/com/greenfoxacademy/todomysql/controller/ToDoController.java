@@ -17,13 +17,7 @@ public class ToDoController {
   @Autowired
   ToDoService toDoService;
 
-  @RequestMapping(value={"/", "/list"})
-  public String list(Model model){
-    model.addAttribute("todolist",toDoRepository.findAll());
-    return "todolist";
-  }
-
-  @GetMapping("/")
+  @GetMapping("")
   public String listOnlyActive(@RequestParam(value = "isActive", required = false) boolean isActive, Model model){
     if(isActive){
     model.addAttribute("todolist",toDoService.activeTodos());}
@@ -36,17 +30,19 @@ public class ToDoController {
   @GetMapping("/addtodo")
   public String addToDoPageDisplay(Model model){
     model.addAttribute("newTodo", new ToDo());
+    model.addAttribute("errormessage", "");
     return "addtodo";
   }
 
   @PostMapping("/addtodo")
   public String addToDoToTheList(@ModelAttribute ToDo newTodo, Model model){
-    if (newTodo == null){
+    if (newTodo.getTitle().isEmpty()){
       model.addAttribute("errormessage", "Empty content cannot be added to ToDoList.");
+      model.addAttribute("newTodo", newTodo);
       return "addtodo";
     }
 
     toDoRepository.save(newTodo);
-    return "redirect:/";
+    return "redirect:/todo";
   }
 }

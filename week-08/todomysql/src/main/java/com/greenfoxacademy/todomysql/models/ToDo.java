@@ -14,6 +14,7 @@ public class ToDo {
   private boolean done;
 
   public ToDo() {
+    this(null);
   }
 
   public ToDo(String title) {

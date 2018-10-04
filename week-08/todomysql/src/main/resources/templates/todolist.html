@@ -14,17 +14,17 @@
     <br/>
 
     <table class="table table-striped table-hover">
-        <thead class="thead-dark">
+        <thead class="thead thead-dark">
         <tr class="table-dark">
-            <th>ID</th>
-            <th>Action</th>
-            <th>status</th>
-            <th>urgent</th>
+            <th>Number</th>
+            <th>ToDo</th>
+            <th>Done?</th>
+            <th>Urgent</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="todo:${todolist}">
-            <td th:text="${todo.id}"></td>
+            <td th:text="${todoStat.count}"></td>
             <td th:text="${todo.title}"></td>
             <td th:text="${todo.done}"></td>
             <td th:text="${todo.urgent}"></td>

@@ -12,11 +12,9 @@
     </h1>
     <br/>
 
-    <form th:object="${newTodo}" action="#" th:action="@{/addtodo}" method="post">
+    <form th:object="${newTodo}" action="/todo/addtodo" method="post">
         <label for="title">ToDo message</label>
         <input id="title" type="text"  th:field="*{title}" placeholder="Write here your task to do"/>
-
-
         <br/>
         <p th:text="${errormessage}"></p>
         <label for="urgent">Is it urgent?</label>
