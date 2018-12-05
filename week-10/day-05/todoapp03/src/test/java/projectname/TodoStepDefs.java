@@ -1,4 +1,5 @@
-import cucumber.api.PendingException;
+package projectname;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
@@ -10,7 +11,7 @@ public class TodoStepDefs {
 
   @When("^user is on main site$")
   public void userIsOnMainSite() throws Throwable {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\Acer\\Desktop\\WebDriver\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\Users\\Acer\\Desktop\\testautomation\\WebDriver\\chromedriver.exe");
     driver = new ChromeDriver();
     driver.get("http://todomvc.com/examples/vanillajs/");
   }
