@@ -21,7 +21,8 @@ public class Anagram {
             j++;
           }
         }
-      } return b.isEmpty();
+      }
+      return b.isEmpty();
     }
   }
 }

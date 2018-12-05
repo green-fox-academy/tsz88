@@ -10,9 +10,9 @@ import java.util.List;
 
 @Service
 public class ToDoService {
+  @Autowired
   private ToDoRepository toDoRepository;
 
-  @Autowired
   public ToDoService(ToDoRepository toDoRepository){
     this.toDoRepository = toDoRepository;
   }
