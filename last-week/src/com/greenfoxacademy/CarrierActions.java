@@ -1,6 +1,6 @@
 package com.greenfoxacademy;
 
-public interface Carrier {
+public interface CarrierActions {
 
   void add(Aircraft aircraft);
   void fill();

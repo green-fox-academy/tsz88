@@ -1,9 +1,10 @@
 package com.greenfoxacademy;
 
-public class Aircraft implements AirCraftActions {
+public abstract class Aircraft implements AirCraftActions {
   String type;
   int currentAmmo;
   int baseDamage;
+  int maxAmmo;
 
   public Aircraft(){
     currentAmmo = 0;
@@ -18,7 +19,14 @@ public class Aircraft implements AirCraftActions {
 
   @Override
   public int refill(int ammoAvailable) {
-    return 0;
+    int fillable = maxAmmo - currentAmmo;
+    if (fillable > ammoAvailable){
+      currentAmmo += ammoAvailable;
+      return 0;
+    } else {
+      currentAmmo = maxAmmo;
+      return ammoAvailable - fillable;
+    }
   }
 
   @Override
