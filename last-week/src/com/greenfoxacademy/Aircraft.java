@@ -1,13 +1,18 @@
 package com.greenfoxacademy;
 
 public abstract class Aircraft implements AirCraftActions {
-  String type;
-  int currentAmmo;
-  int baseDamage;
-  int maxAmmo;
+  JetType type;
+  protected int currentAmmo;
+  protected int baseDamage;
+  protected int maxAmmo;
 
-  public Aircraft(){
+  public Aircraft() {
     currentAmmo = 0;
+  }
+
+  public Aircraft(int baseDamage, int maxAmmo){
+    this.baseDamage = baseDamage;
+    this.maxAmmo = maxAmmo;
   }
 
   @Override
@@ -20,27 +25,42 @@ public abstract class Aircraft implements AirCraftActions {
   @Override
   public int refill(int ammoAvailable) {
     int fillable = maxAmmo - currentAmmo;
-    if (fillable > ammoAvailable){
-      currentAmmo += ammoAvailable;
-      return 0;
-    } else {
-      currentAmmo = maxAmmo;
-      return ammoAvailable - fillable;
+    if (fillable > ammoAvailable) {
+      fillable = ammoAvailable;
     }
+    currentAmmo += fillable;
+    return ammoAvailable - fillable;
   }
 
   @Override
   public String getType() {
-    return null;
+    return type.toString();
   }
 
   @Override
   public String getStatus() {
-    return null;
+    StringBuilder reply = new StringBuilder();
+    reply.append("Type: " + type.toString() + ", ");
+    reply.append("Ammo: " + currentAmmo + ", ");
+    reply.append("Base Damage: " + baseDamage + ", ");
+    reply.append("All Damage: " + baseDamage * currentAmmo);
+    return reply.toString();
   }
 
   @Override
   public boolean isPriority() {
     return false;
+  }
+
+  public int getCurrentAmmo() {
+    return currentAmmo;
+  }
+
+  public int getBaseDamage() {
+    return baseDamage;
+  }
+
+  public int getMaxAmmo() {
+    return maxAmmo;
   }
 }
