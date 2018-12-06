@@ -56,6 +56,10 @@ public abstract class Aircraft implements AirCraftActions {
     return currentAmmo;
   }
 
+  public void setCurrentAmmo(int intendedAmmoLevel){
+    this.currentAmmo = intendedAmmoLevel % maxAmmo;
+  }
+
   public int getBaseDamage() {
     return baseDamage;
   }

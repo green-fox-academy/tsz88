@@ -7,6 +7,7 @@ public class AircraftCarrier implements CarrierActions {
   protected List<Aircraft> listOfJetsOnCarrier;
   protected int ammoStorageOfCarrier;
   protected int healthPointsOfCarrier;
+  public String nameOfAircraftCarrier;
 
   public AircraftCarrier(int ammoStorageOfCarrier, int healthPointsOfCarrier) {
     this.ammoStorageOfCarrier = ammoStorageOfCarrier;
@@ -44,13 +45,43 @@ public class AircraftCarrier implements CarrierActions {
     }
   }
 
-  @Override
-  public void fight(Aircraft aircraft) {
+  private int totalDamageOfCarrier(){
+    int result = 0;
+    for (Aircraft iteratedAircraft : listOfJetsOnCarrier){
+      result += iteratedAircraft.baseDamage * iteratedAircraft.currentAmmo;
+    }
+    return result;
+  }
 
+  private void emptyAllAircrafts(){
+    for (Aircraft iteratedAircraft : listOfJetsOnCarrier) {
+      iteratedAircraft.setCurrentAmmo(0);
+    }
+  }
+
+  private void evaluateIfTheEnemyLost(AircraftCarrier enemy){
+    if (enemy.healthPointsOfCarrier <= 0) {
+      System.out.println(enemy.nameOfAircraftCarrier + " has lost the battle.");
+    }
+  }
+
+  @Override
+  public void fight(AircraftCarrier enemyAircraftCarrier) {
+    enemyAircraftCarrier.healthPointsOfCarrier -= totalDamageOfCarrier();
+    this.emptyAllAircrafts();
+    evaluateIfTheEnemyLost(enemyAircraftCarrier);
   }
 
   @Override
   public String getStatus() {
-    return null;
+    StringBuilder longStatusToPrint = new StringBuilder();
+    longStatusToPrint.append("HP: " + healthPointsOfCarrier + ", ");
+    longStatusToPrint.append("Aircraft count: " + listOfJetsOnCarrier.size() + ", ");
+    longStatusToPrint.append("Ammo storage: " + ammoStorageOfCarrier + ", ");
+    longStatusToPrint.append("Total damage: " + totalDamageOfCarrier() + "\n");
+    for (Aircraft iteratedAircraft: listOfJetsOnCarrier){
+      longStatusToPrint.append(iteratedAircraft.getStatus() + "\n");
+    }
+    return longStatusToPrint.toString();
   }
 }

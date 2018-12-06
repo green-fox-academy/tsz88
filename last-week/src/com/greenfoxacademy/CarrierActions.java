@@ -4,6 +4,6 @@ public interface CarrierActions {
 
   void add(Aircraft aircraft);
   void fill() throws Exception;
-  void fight(Aircraft aircraft);
+  void fight(AircraftCarrier aircraftCarrier);
   String getStatus();
 }
