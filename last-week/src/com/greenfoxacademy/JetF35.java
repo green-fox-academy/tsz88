@@ -6,4 +6,8 @@ public class JetF35 extends Aircraft {
     super(50, 12);
     type = JetType.F35;
   }
+
+  public boolean isPriority(){
+    return true;
+  }
 }
