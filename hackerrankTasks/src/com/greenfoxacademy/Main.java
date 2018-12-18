@@ -54,10 +54,19 @@ public class Main {
     for (int j = 0; j < tTo.size(); j++){
       nodesWithWeight.put(tTo.get(j), nodesWithWeight.get(tTo.get(j)) + 1);
     }
+    int key = Collections.max(tTo);
+    Integer origin = 0;
+    while (key > 1){
+      if (nodesWithWeight.get(key) > 1){
+        origin = tTo.get(key-2);
+        nodesWithWeight.put(origin,nodesWithWeight.get(origin) + nodesWithWeight.get(key) - 1);
+      }
+      key--;
+    }
     return nodesWithWeight;
   }
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
 
   }
 }
