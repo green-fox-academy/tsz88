@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
-
-  // Complete the birthdayCakeCandles function below.
   static int birthdayCakeCandles(int[] ar) {
     HashMap<Integer, Integer> candleFrequency = new HashMap<>();
     for (int i = 0; i < ar.length; i++){
@@ -33,6 +31,30 @@ public class Main {
     String result = militaryFormat.format(input);
 
   return result;
+  }
+
+  static int evenForest(int nodes, int edges, List<Integer> tFrom, List<Integer> tTo){
+    HashMap<Integer, Integer> weighedNodes = giveWeightToEachNode(tFrom, tTo);
+    weighedNodes.remove(1);
+    int counter = 0;
+    for (Integer key:
+         weighedNodes.keySet()) {
+      if (weighedNodes.get(key) % 2 == 0){
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  static HashMap<Integer, Integer> giveWeightToEachNode(List<Integer> tFrom, List<Integer> tTo){
+    HashMap<Integer, Integer> nodesWithWeight = new HashMap<>();
+    for (int i = 1; i <= tFrom.size() + 1; i++){
+      nodesWithWeight.put(i, 1);
+    }
+    for (int j = 0; j < tTo.size(); j++){
+      nodesWithWeight.put(tTo.get(j), nodesWithWeight.get(tTo.get(j)) + 1);
+    }
+    return nodesWithWeight;
   }
 
   public static void main(String[] args) throws IOException {
