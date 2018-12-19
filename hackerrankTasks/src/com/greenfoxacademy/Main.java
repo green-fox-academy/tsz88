@@ -66,8 +66,26 @@ public class Main {
     return nodesWithWeight;
   }
 
-  public static void main(String[] args) {
+  public static String printer(int N){
+    String result;
+    if (N % 2 == 0 && N > 5 && N < 21){
+      result = "Weird";
+    }
+    else if (N % 2 == 0){
+      result ="Not Weird";
+    }
+    else {
+      result ="Weird";
+    }
+    return result;
+  }
 
+
+
+  public static void main(String[] args) {
+//    Scanner scan = new Scanner(System.in);
+//    int a = scan.nextInt();
+//    System.out.println(a);
   }
 }
 

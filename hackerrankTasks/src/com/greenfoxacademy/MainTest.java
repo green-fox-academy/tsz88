@@ -33,4 +33,10 @@ public class MainTest {
 
     Assert.assertEquals(2, Main.evenForest(nodes, edges, fromList, toList));
   }
+
+  @Test
+  public void printerTest(){
+    int N = 18;
+    Assert.assertEquals("Weird", Main.printer(N));
+  }
 }
