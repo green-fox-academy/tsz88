@@ -83,9 +83,25 @@ public class Main {
 
 
   public static void main(String[] args) {
-//    Scanner scan = new Scanner(System.in);
-//    int a = scan.nextInt();
-//    System.out.println(a);
+    Scanner scan = new Scanner(System.in);
+    scan.skip("\n");
+    int a = scan.nextInt();
+    System.out.println(a);
+
+
+    Scanner sc=new Scanner(System.in);
+    System.out.println("================================");
+    for(int i=0;i<3;i++)
+    {
+      String s1=sc.next();
+      int x=sc.nextInt();
+      System.out.print(String.format("%-15s", s1));
+      //minus to left-align the text
+      System.out.println(String.format("%03d", x));
+      //03 is fill up with 0s if it is less than 3 digits
+    }
+    System.out.println("================================");
+
   }
 }
 
