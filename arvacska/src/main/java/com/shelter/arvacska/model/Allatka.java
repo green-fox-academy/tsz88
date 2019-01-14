@@ -1,8 +1,16 @@
 package com.shelter.arvacska.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 
+@Entity
 public class Allatka {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  Long allatkaID;
   Faj faj;
   String nev;
   int kor;

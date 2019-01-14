@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AllatosListak {
   public String name;
-  public ArrayList<Allatka> Allatkak;
+  public ArrayList<Allatka> allatkak;
 
   public AllatosListak(String name) {
     this.name = name;
