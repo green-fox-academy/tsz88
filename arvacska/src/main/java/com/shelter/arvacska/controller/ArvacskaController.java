@@ -13,6 +13,11 @@ public class ArvacskaController {
     return "main";
   }
 
+  @GetMapping("/uj-allatka")
+  public String ujAllatkaHozzaadas(){
+    return "uj_allatka";
+  }
+
   @RequestMapping("/allatkak")
   public String allatkaListDisplay(Model model){
 
