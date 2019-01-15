@@ -1,24 +1,38 @@
 package com.shelter.arvacska.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.stereotype.Controller;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Allatka {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+      @Column(name = "id")
   Long allatkaID;
   Faj faj;
+  @Column(name = "nev")
   String nev;
+  @Column(name = "kor")
   int kor;
   List<KepUrl> kepek;
+  @Column(name = "bemutatas")
   String bemutatas;
+  @Column(name = "kolyok")
+  boolean ezEgyKolyokAllatkaVajon;
 
   public Allatka(String nev) {
     this.nev = nev;
+  }
+
+  public Allatka(Faj faj, String nev, int kor, List<KepUrl> kepek, String bemutatas, boolean ezEgyKolyokAllatkaVajon) {
+    this.faj = faj;
+    this.nev = nev;
+    this.kor = kor;
+    this.kepek = kepek;
+    this.bemutatas = bemutatas;
+    this.ezEgyKolyokAllatkaVajon = ezEgyKolyokAllatkaVajon;
   }
 
   public Faj getFaj() {
@@ -59,5 +73,17 @@ public class Allatka {
 
   public void setKor(int kor) {
     this.kor = kor;
+  }
+
+  public boolean isEzEgyKolyokAllatkaVajon() {
+    return ezEgyKolyokAllatkaVajon;
+  }
+
+  public void setEzEgyKolyokAllatkaVajon(boolean ezEgyKolyokAllatkaVajon) {
+    this.ezEgyKolyokAllatkaVajon = ezEgyKolyokAllatkaVajon;
+  }
+
+  public Long getAllatkaID() {
+    return allatkaID;
   }
 }

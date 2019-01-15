@@ -12,4 +12,10 @@ public class ArvacskaController {
   public String mainPageDisplay(Model model){
     return "main";
   }
+
+  @RequestMapping("/allatkak")
+  public String allatkaListDisplay(Model model){
+
+    return "allatka";
+  }
 }
