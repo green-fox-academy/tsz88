@@ -10,17 +10,16 @@ public class Allatka {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
       @Column(name = "id")
-  Long allatkaID;
-  Faj faj;
+  protected Long allatkaID;
+  protected Faj faj;
   @Column(name = "nev")
-  String nev;
+  protected String nev;
   @Column(name = "kor")
-  int kor;
-  List<KepUrl> kepek;
+  protected int kor;
   @Column(name = "bemutatas")
-  String bemutatas;
+  protected String bemutatas;
   @Column(name = "kolyok")
-  boolean ezEgyKolyokAllatkaVajon;
+  protected boolean ezEgyKolyokAllatkaVajon;
 
   public Allatka(String nev) {
     this.nev = nev;
@@ -30,7 +29,6 @@ public class Allatka {
     this.faj = faj;
     this.nev = nev;
     this.kor = kor;
-    this.kepek = kepek;
     this.bemutatas = bemutatas;
     this.ezEgyKolyokAllatkaVajon = ezEgyKolyokAllatkaVajon;
   }
@@ -53,14 +51,6 @@ public class Allatka {
 
   public int getKor() {
     return kor;
-  }
-
-  public List<KepUrl> getKepek() {
-    return kepek;
-  }
-
-  public void setKepek(List<KepUrl> kepek) {
-    this.kepek = kepek;
   }
 
   public String getBemutatas() {
